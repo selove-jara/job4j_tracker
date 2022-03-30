@@ -7,7 +7,8 @@ public class Jukebox {
         } else if (position == 2) {
             System.out.println("Баю-бай, должны все люди ночью спать.");
         } else {
-            System.out.println("Песня не найдена");}
+            System.out.println("Песня не найдена");
+        }
     }
 
     public static void main(String[] args) {
