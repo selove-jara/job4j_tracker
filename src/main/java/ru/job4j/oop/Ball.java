@@ -6,7 +6,7 @@ public class Ball {
         boolean result = false;
         if (condition) {
             System.out.println("Kolobok RIP");
-        }else {
+        } else {
             System.out.println("Kolobok run");
         }
         return null;
