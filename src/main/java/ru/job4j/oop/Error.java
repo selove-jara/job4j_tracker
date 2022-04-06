@@ -9,7 +9,7 @@ public class Error {
     public Error() {
     }
 
-    public Error (boolean active, int status, String message) {
+    public Error(boolean active, int status, String message) {
         this.active = active;
         this.status = status;
         this.message = message;
@@ -18,7 +18,7 @@ public class Error {
     public static void main(String[] args) {
         Error error = new Error();
         error.printInfo();
-        Error error666 = new Error(true, 666, "Перезагрузи компьютерте, обычно помогает.");
+        Error error666 = new Error(true, 666, "Перезагрузите компьютер, обычно помогает.");
         error666.printInfo();
         Error error400 = new Error(false, 400, "Плохой запрос.");
         error400.printInfo();
