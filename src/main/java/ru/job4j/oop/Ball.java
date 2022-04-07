@@ -2,13 +2,11 @@ package ru.job4j.oop;
 
 public class Ball {
 
-    public Ball tryRun(boolean condition) {
-        boolean result = false;
+    public void tryRun(boolean condition) {
         if (condition) {
             System.out.println("Kolobok RIP");
         } else {
             System.out.println("Kolobok run");
         }
-        return null;
     }
 }
