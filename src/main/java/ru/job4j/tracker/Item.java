@@ -18,10 +18,9 @@ public class Item {
         this.name = name;
     }
 
-    public Item(int id, String name, LocalDateTime created) {
+    public Item(int id, String name) {
         this.name = name;
         this.id = id;
-        this.created = created;
     }
 
     public int getId() {
