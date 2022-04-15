@@ -27,7 +27,9 @@ public class Library {
         System.out.println("Поиск книги: ");
         for (int index = 0; index < books.length; index++) {
             Book book = books[index];
-            System.out.println(book.equals(clean));
+            if (book.equals(clean)) {
+                System.out.println("Clean code");
+            }
         }
     }
 }
