@@ -35,7 +35,7 @@ public class StartUI {
 
     public static void removal(Input input, Tracker tracker) {
         System.out.println("=== Delete item ===");
-        int id = Integer.parseInt(input.askStr("Enter id: "));
+        int id = Integer.parseInt("Enter id: ");
         if (tracker.delete(id)) {
             System.out.println("Заявка удалена успешно.");
         } else {
@@ -45,7 +45,7 @@ public class StartUI {
 
     public static void productSearch(Input input, Tracker tracker) {
         System.out.println("=== Find item by id ===");
-        int id = Integer.parseInt(input.askStr("Enter id: "));
+        int id = Integer.parseInt("Enter id: ");
         Item item = tracker.findById(id);
         if (item != null) {
             System.out.println(item);
