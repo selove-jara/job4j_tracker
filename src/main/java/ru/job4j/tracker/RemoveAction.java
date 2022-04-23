@@ -15,6 +15,7 @@ public class RemoveAction implements UserAction {
         } else {
             System.out.println("Ошибка удаления заявки.");
         }
+
         return true;
     }
 }

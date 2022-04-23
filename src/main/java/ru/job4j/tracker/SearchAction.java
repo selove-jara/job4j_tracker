@@ -16,6 +16,7 @@ public class SearchAction implements UserAction {
         } else {
             System.out.println("Заявка с введенным id: " + id + " не найдена.");
         }
+
         return true;
     }
 }
