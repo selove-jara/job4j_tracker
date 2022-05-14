@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-import org.w3c.dom.ls.LSOutput;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -17,21 +19,21 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0", String.valueOf(one.getId()), replaceName, "1"}
         );
-        UserAction[] actions = new UserAction[]{
-                new EditAction(out),
-                new ExitAction(out)
-        };
+        List<UserAction> actions = new ArrayList<>();
+        actions.add(new EditAction(out));
+        actions.add(new ExitAction(out));
+
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
                 "Menu." + ln
-                         + "0. Edit" + ln
-                         + "1. Exit Program" + ln
-                         + "=== Edit item ===" + ln
-                         + "Заявка изменена успешно." + ln
-                         + "Menu." + ln
-                         + "0. Edit" + ln
-                         + "1. Exit Program" + ln
+                        + "0. Edit" + ln
+                        + "1. Exit Program" + ln
+                        + "=== Edit item ===" + ln
+                        + "Заявка изменена успешно." + ln
+                        + "Menu." + ln
+                        + "0. Edit" + ln
+                        + "1. Exit Program" + ln
         ));
     }
 
@@ -43,10 +45,9 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0", "1"}
         );
-        UserAction[] actions = new UserAction[]{
-                new ShowAction(out),
-                new ExitAction(out)
-        };
+        List<UserAction> actions = new ArrayList<>();
+                actions.add(new ShowAction(out));
+                actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
@@ -54,7 +55,7 @@ public class StartUITest {
                         + "0. Show" + ln
                         + "1. Exit Program" + ln
                         + "=== Show all items ===" + ln
-                        +  one + ln
+                        + one + ln
                         + "Menu." + ln
                         + "0. Show" + ln
                         + "1. Exit Program" + ln
@@ -69,10 +70,9 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0", one.getName(), "1"}
         );
-        UserAction[] actions = new UserAction[]{
-                new SearchNameAction(out),
-                new ExitAction(out)
-        };
+        List<UserAction> actions = new ArrayList<>();
+                actions.add(new SearchNameAction(out));
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
@@ -80,7 +80,7 @@ public class StartUITest {
                         + "0. Find by name" + ln
                         + "1. Exit Program" + ln
                         + "=== Find items by name ===" + ln
-                        +  one + ln
+                        + one + ln
                         + "Menu." + ln
                         + "0. Find by name" + ln
                         + "1. Exit Program" + ln
@@ -95,10 +95,9 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0", String.valueOf(one.getId()), "1"}
         );
-        UserAction[] actions = new UserAction[]{
-                new SearchAction(out),
-                new ExitAction(out)
-        };
+        List<UserAction> actions = new ArrayList<>();
+        actions.add(new SearchAction(out));
+                actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
@@ -106,7 +105,7 @@ public class StartUITest {
                         + "0. Find by id" + ln
                         + "1. Exit Program" + ln
                         + "=== Find item by id ===" + ln
-                        +  one + ln
+                        + one + ln
                         + "Menu." + ln
                         + "0. Find by id" + ln
                         + "1. Exit Program" + ln
@@ -117,12 +116,11 @@ public class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"9", "0"}
+                new String[]{"9", "0"}
         );
         Tracker tracker = new Tracker();
-        UserAction[] actions = new UserAction[]{
-                new ExitAction(out)
-        };
+        List<UserAction> actions = new ArrayList<>();
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
