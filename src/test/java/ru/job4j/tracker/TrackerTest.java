@@ -2,11 +2,14 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.nullValue;
+import static org.junit.Assert.assertEquals;
 
 public class TrackerTest {
     @Test
@@ -89,5 +92,33 @@ public class TrackerTest {
         int id = bug.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
+    }
+
+    @Test
+    public void sortItemAscByName() {
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("Dmitry"));
+        items.add(new Item("Nikolay"));
+        items.add(new Item("Andrey"));
+        Collections.sort(items, new ItemAscByName());
+        List<Item> expected = new ArrayList<>();
+        expected.add(new Item("Andrey"));
+        expected.add(new Item("Dmitry"));
+        expected.add(new Item("Nikolay"));
+        assertEquals(expected, items);
+    }
+
+    @Test
+    public void sortItemDescByName() {
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("Dmitry"));
+        items.add(new Item("Nikolay"));
+        items.add(new Item("Andrey"));
+        Collections.sort(items, new ItemAscByName());
+        List<Item> expected = new ArrayList<>();
+        expected.add(new Item("Nikolay"));
+        expected.add(new Item("Dmitry"));
+        expected.add(new Item("Andrey"));
+        assertEquals(expected, items);
     }
 }
