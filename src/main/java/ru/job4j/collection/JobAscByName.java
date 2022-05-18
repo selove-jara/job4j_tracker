@@ -8,4 +8,3 @@ public class JobAscByName implements Comparator<Job> {
         return o1.getName().compareTo(o2.getName());
     }
 }
-// возрастание имени
