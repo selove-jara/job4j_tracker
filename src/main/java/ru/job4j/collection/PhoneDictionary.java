@@ -25,21 +25,4 @@ public class PhoneDictionary {
         }
         return result;
     }
-
-    /**
-     *
-     * @param key
-     * @return public ArrayList<Person> find(String key) {
-    ArrayList<Person> result = new ArrayList<>();
-    for (Person search : persons) {
-    if (search.getName().contains(key)
-    || search.getSurname().contains(key)
-    || search.getPhone().contains(key)
-    || search.getAddress().contains(key)) {
-    result.add(search);
-    }
-    }
-    return result;
-    }
-     */
 }
