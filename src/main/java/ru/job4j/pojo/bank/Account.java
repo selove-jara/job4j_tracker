@@ -1,4 +1,4 @@
-package ru.job4j.bank;
+package ru.job4j.pojo.bank;
 
 import java.util.Objects;
 

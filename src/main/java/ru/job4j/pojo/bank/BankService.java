@@ -1,4 +1,4 @@
-package ru.job4j.bank;
+package ru.job4j.pojo.bank;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,6 +7,7 @@ import java.util.Map;
 
 /**
  * Класс описывает работу банковской системы
+ *
  * @author Andrey Morozov
  * @version 1.0
  */
@@ -20,6 +21,7 @@ public class BankService {
     /**
      * Метод для добавления пользователя, используя
      * один параметр - объект
+     *
      * @param user
      */
     public void addUser(User user) {
@@ -28,6 +30,7 @@ public class BankService {
 
     /**
      * Метод для добавление нового счета
+     *
      * @param passport поиск пользователя  по парспорту
      * @param account
      */
@@ -43,6 +46,7 @@ public class BankService {
 
     /**
      * Метод для поиска пользователя по паспорту
+     *
      * @param passport используя поле, для поиска
      * @return возращает поользователя, если пользователь найден, иначе null
      */
@@ -56,7 +60,8 @@ public class BankService {
 
     /**
      * Метод для поиска пользователя по  реквизитам
-     * @param passport используем для поиска пользователя по паспорту
+     *
+     * @param passport  используем для поиска пользователя по паспорту
      * @param requisite ищем у этого пользователя счет по реквизитам
      * @return возращает счет
      */
@@ -74,9 +79,10 @@ public class BankService {
 
     /**
      * Метод для перевода денег с одного счета на другой
-     * @param srcPassport поиск по паспорту пользователя
+     *
+     * @param srcPassport  поиск по паспорту пользователя
      * @param destPassport поиск по паспорту другого пользователя
-     * @param amount сумма которую хотите перевести
+     * @param amount       сумма которую хотите перевести
      * @return возращает исполнено или нет(true  and false)
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
