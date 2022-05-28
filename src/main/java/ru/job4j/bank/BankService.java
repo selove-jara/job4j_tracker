@@ -1,39 +1,18 @@
-package ru.job4j.pojo.bank;
+package ru.job4j.bank;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Класс описывает работу банковской системы
- *
- * @author Andrey Morozov
- * @version 1.0
- */
 public class BankService {
-    /**
-     * Хранение задания осуществляется в коллекции типа Map
-     */
 
     private final Map<User, List<Account>> users = new HashMap<>();
 
-    /**
-     * Метод для добавления пользователя, используя
-     * один параметр - объект
-     *
-     * @param user
-     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
-    /**
-     * Метод для добавление нового счета
-     *
-     * @param passport поиск пользователя  по парспорту
-     * @param account
-     */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -44,12 +23,6 @@ public class BankService {
         }
     }
 
-    /**
-     * Метод для поиска пользователя по паспорту
-     *
-     * @param passport используя поле, для поиска
-     * @return возращает поользователя, если пользователь найден, иначе null
-     */
     public User findByPassport(String passport) {
         return users.keySet()
                 .stream()
@@ -58,13 +31,6 @@ public class BankService {
                 .orElse(null);
     }
 
-    /**
-     * Метод для поиска пользователя по  реквизитам
-     *
-     * @param passport  используем для поиска пользователя по паспорту
-     * @param requisite ищем у этого пользователя счет по реквизитам
-     * @return возращает счет
-     */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -77,14 +43,6 @@ public class BankService {
         return null;
     }
 
-    /**
-     * Метод для перевода денег с одного счета на другой
-     *
-     * @param srcPassport  поиск по паспорту пользователя
-     * @param destPassport поиск по паспорту другого пользователя
-     * @param amount       сумма которую хотите перевести
-     * @return возращает исполнено или нет(true  and false)
-     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
