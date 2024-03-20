@@ -1,6 +1,5 @@
 package collection;
 
-
 public class Job implements Comparable<Job> {
     private String name;
 
