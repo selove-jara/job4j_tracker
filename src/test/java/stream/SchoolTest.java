@@ -28,7 +28,6 @@ public class SchoolTest {
         assertThat(result).isEqualTo(expected);
     }
 
-
     @Test
     public void whenCollectClassB() {
         List<Student> students = List.of(
