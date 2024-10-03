@@ -1,6 +1,7 @@
 package lombok;
 
 import java.util.List;
+
 @Builder(builderMethodName = "of")
 @ToString
 public class Permission {
@@ -8,6 +9,7 @@ public class Permission {
     private String name;
     @Singular("accessBy")
     private List<String> rules;
+
     public static class PermissionUsage {
         public static void main(String[] args) {
             var permission = Permission.of()
