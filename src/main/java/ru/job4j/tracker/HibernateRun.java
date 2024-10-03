@@ -5,7 +5,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
 import java.util.List;
+
 public class HibernateRun {
     public static void main(String[] args) {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
@@ -26,12 +28,13 @@ public class HibernateRun {
             for (Item it : list) {
                 System.out.println(it);
             }
-        }  catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             StandardServiceRegistryBuilder.destroy(registry);
         }
     }
+
     public static Item create(Item item, SessionFactory sf) {
         Session session = sf.openSession();
         session.beginTransaction();
@@ -40,6 +43,7 @@ public class HibernateRun {
         session.close();
         return item;
     }
+
     public static void update(Item item, SessionFactory sf) {
         Session session = sf.openSession();
         session.beginTransaction();
@@ -47,6 +51,7 @@ public class HibernateRun {
         session.getTransaction().commit();
         session.close();
     }
+
     public static void delete(Integer id, SessionFactory sf) {
         Session session = sf.openSession();
         session.beginTransaction();
@@ -56,6 +61,7 @@ public class HibernateRun {
         session.getTransaction().commit();
         session.close();
     }
+
     public static List<Item> findAll(SessionFactory sf) {
         Session session = sf.openSession();
         session.beginTransaction();
@@ -64,6 +70,7 @@ public class HibernateRun {
         session.close();
         return result;
     }
+
     public static Item findById(Integer id, SessionFactory sf) {
         Session session = sf.openSession();
         session.beginTransaction();
